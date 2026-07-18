@@ -1,0 +1,20 @@
+import api from './api';
+
+export const getMembers = (params) => api.get('/members', { params });
+export const getMember = (id) => api.get(`/members/${id}`);
+export const createMember = (data) => api.post('/members', data);
+export const updateMember = (id, data) => api.put(`/members/${id}`, data);
+export const deleteMember = (id) => api.delete(`/members/${id}`);
+export const getMyProfile = () => api.get('/members/me');
+export const getQRCode = () => api.get('/members/qr');
+export const getProgress = () => api.get('/members/progress');
+export const addProgress = (data) => api.post('/members/progress', data);
+export const getAttendanceHistory = (params) => api.get('/members/attendance', { params });
+export const getMemberDashboard = () => api.get('/members/dashboard');
+export const getMyProgress = () => api.get('/members/progress');
+export const logProgress = (data) => api.post('/members/progress', data);
+export const getProfile = () => api.get('/members/me');
+export const updateProfile = (data) => api.put('/members/profile', data);
+export const getMyAttendance = () => api.get('/members/attendance');
+export const checkIn = () => api.post('/attendance/check-in');
+export const checkOut = () => api.post('/attendance/check-out');
