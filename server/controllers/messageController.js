@@ -50,7 +50,7 @@ exports.getChatList = async (req, res, next) => {
           lastMessage: { $first: '$$ROOT' },
           unreadCount: {
             $sum: {
-              $cond: [{ $and: [{ $eq: ['$receiver', req.user._id'] }, { $eq: ['$read', false] }] }, 1, 0],
+              $cond: [{ $and: [{ $eq: ['$receiver', req.user._id] }, { $eq: ['$read', false] }] }, 1, 0],
             },
           },
         },

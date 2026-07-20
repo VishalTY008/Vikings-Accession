@@ -10,7 +10,7 @@ export default function Signup() {
   const [form, setForm] = useState({ name:'', email:'', password:'', confirmPassword:'', phone:'' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { register } = useAuth();
+  const { signup } = useAuth();
   const navigate = useNavigate();
   const update = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
 
@@ -19,7 +19,7 @@ export default function Signup() {
     if (form.password !== form.confirmPassword) { setError('Passwords do not match'); return; }
     setLoading(true); setError('');
     try {
-      await register({ name: form.name, email: form.email, password: form.password, phone: form.phone });
+      await signup({ name: form.name, email: form.email, password: form.password, phone: form.phone });
       navigate('/dashboard');
     } catch (err) { setError(err.response?.data?.message || 'Registration failed'); }
     finally { setLoading(false); }
