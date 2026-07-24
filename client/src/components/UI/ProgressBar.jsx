@@ -15,9 +15,11 @@ export default function ProgressBar({ value = 0, max = 100, color = 'primary', c
       <motion.div
         initial={{ width: 0 }}
         animate={{ width: `${percentage}%` }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-        className={`h-full bg-gradient-to-r ${colors[color]} rounded-full`}
-      />
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className={`h-full bg-gradient-to-r ${colors[color]} rounded-full relative`}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 animate-gradient bg-300%" />
+      </motion.div>
     </div>
   );
 }

@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 const variants = {
   success: 'bg-accent-100 text-accent-700 dark:bg-accent-900/30 dark:text-accent-400',
   danger: 'bg-danger-100 text-danger-700 dark:bg-danger-900/30 dark:text-danger-400',
@@ -7,10 +9,14 @@ const variants = {
   neutral: 'bg-gray-100 text-gray-700 dark:bg-dark-700 dark:text-dark-300',
 };
 
-export default function Badge({ variant = 'neutral', children, className = '' }) {
+export default function Badge({ variant = 'neutral', pulse = false, children, className = '' }) {
   return (
-    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variants[variant]} ${className}`}>
+    <motion.span
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variants[variant]} ${pulse ? 'animate-pulse' : ''} ${className}`}
+    >
       {children}
-    </span>
+    </motion.span>
   );
 }

@@ -15,15 +15,25 @@ const sizes = {
   lg: 'px-7 py-3 text-base rounded-xl',
 };
 
-export default function Button({ variant = 'primary', size = 'md', children, className = '', ...props }) {
+export default function Button({ variant = 'primary', size = 'md', children, className = '', loading = false, ...props }) {
   return (
     <motion.button
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className={`font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 ${variants[variant]} ${sizes[size]} ${className}`}
+      className={`font-semibold transition-all duration-300 inline-flex items-center justify-center gap-2 relative overflow-hidden ${variants[variant]} ${sizes[size]} ${className}`}
+      disabled={loading}
       {...props}
     >
-      {children}
+      {loading && (
+        <motion.div
+          className="absolute inset-0 flex items-center justify-center bg-inherit"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+        </motion.div>
+      )}
+      <span className={loading ? 'opacity-0' : ''}>{children}</span>
     </motion.button>
   );
 }

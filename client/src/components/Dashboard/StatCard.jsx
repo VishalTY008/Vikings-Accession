@@ -12,10 +12,13 @@ export default function StatCard({ title, value, icon: Icon, trend, color = 'pri
 
   return (
     <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3 }}
-      className="stat-card"
+      whileHover={{ y: -4, boxShadow: `0 20px 40px -12px rgba(99, 102, 241, 0.1)` }}
+      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      className="stat-card relative overflow-hidden group"
     >
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ background: `linear-gradient(to right, var(--tw-gradient-stops))` }}
+      />
       <div className="flex items-start justify-between">
         <div className="space-y-2">
           <p className="text-sm font-medium text-gray-500 dark:text-dark-400">{title}</p>
@@ -28,7 +31,7 @@ export default function StatCard({ title, value, icon: Icon, trend, color = 'pri
             </p>
           )}
         </div>
-        <div className={`p-3 rounded-xl bg-gradient-to-br ${gradients[color]} text-white shadow-lg`}>
+        <div className={`p-3 rounded-xl bg-gradient-to-br ${gradients[color]} text-white shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
           <Icon size={22} />
         </div>
       </div>
