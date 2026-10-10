@@ -1,1 +1,0 @@
-import{c as o}from"./index-HYiRohhE.js";const e=t=>o.get("/workouts",{params:t}),a=t=>o.post("/workouts",t),r=t=>o.get("/diets",{params:t}),c=t=>o.post("/diets",t),g=t=>o.post(`/workouts/${t}/log`);export{r as a,c as b,a as c,e as g,g as l};

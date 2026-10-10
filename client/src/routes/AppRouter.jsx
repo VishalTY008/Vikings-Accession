@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
@@ -103,9 +103,5 @@ export default function AppRouter() {
   const { loading } = useAuth();
   if (loading) return <PageLoader />;
 
-  return (
-    <BrowserRouter>
-      <AnimatedRoutes />
-    </BrowserRouter>
-  );
+  return <AnimatedRoutes />;
 }

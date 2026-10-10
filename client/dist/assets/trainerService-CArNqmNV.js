@@ -1,0 +1,1 @@
+import{c as r}from"./index-CCHIrzg6.js";const t=e=>r.get("/trainers",{params:e}),a=e=>r.post("/trainers",e),n=e=>r.delete(`/trainers/${e}`),o=()=>r.get("/trainers/dashboard"),i=()=>r.get("/trainers/my-members"),g=e=>r.get(`/trainers/member-progress/${e}`);export{i as a,g as b,t as c,a as d,n as e,o as g};

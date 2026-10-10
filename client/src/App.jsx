@@ -1,3 +1,4 @@
+import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ThemeProvider } from './context/ThemeContext';
 import { SocketProvider } from './context/SocketContext';
@@ -12,17 +13,19 @@ export default function App() {
   return (
     <ThemeProvider>
       <AuthProvider>
-        <SocketProvider>
-          <NotificationProvider>
-            <CursorProvider>
-              <SmoothScrollProvider>
-                <NoiseOverlay />
-                <CustomCursor />
-                <AppRouter />
-              </SmoothScrollProvider>
-            </CursorProvider>
-          </NotificationProvider>
-        </SocketProvider>
+        <BrowserRouter>
+          <SocketProvider>
+            <NotificationProvider>
+              <CursorProvider>
+                <SmoothScrollProvider>
+                  <NoiseOverlay />
+                  <CustomCursor />
+                  <AppRouter />
+                </SmoothScrollProvider>
+              </CursorProvider>
+            </NotificationProvider>
+          </SocketProvider>
+        </BrowserRouter>
       </AuthProvider>
     </ThemeProvider>
   );
